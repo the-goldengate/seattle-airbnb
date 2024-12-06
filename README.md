@@ -1,16 +1,10 @@
-# **✨ Research Campaign - by The Golden Gate ✨**
+# ** Research Campaign - by The Golden Gate **
 
 **✅ Members of The Golden gate ✅**
 
-1. Nur Imam Masri
-2. Astuti Rahmawati
-3. Prasidya Bagaskara
-4. Moh. Harwin Prayoga
-5. Riskiyatul Hasanah
-6. M Rayhan Azzindani
-7. Siti Hajjah Mardiah
-8. Christine
-9. M. Ifzal Asril
+1. M Ridzky Maulady
+2. Josua Ricardo Samosir
+3. Daniel Andrew Siahaan
 
 ## **Languages and Technologies used**
 
@@ -270,10 +264,6 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 
 ### **Basic Datasets Information**
 
-- Dataset memiliki `29 columns` dan `2240 rows` data
-- Terdapat 3 jenis tipe data yaitu : `int64, object, float64`
-- Kolom `Income` memiliki 2216 nilai non-null, dan `24 nilai null / missing values`
-
 ## **📌 Data Types Information**
 
 **List of Column Types:**
@@ -310,83 +300,6 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 ## **📌 Handling Outliers**
 
 ## **📌 Feature Transformation (Numeric)**
-
-![image](https://github.com/nurimammasri/Marketing-Campaign-Model-Prediction-by-Datalicious/assets/54845293/4962331e-fede-4185-9b24-676068f53654)
-
-Dari hasil temuan, kita dapat menentukan beberapa transformasi yang akan kita lakukan :
-- **Scaling and Converting to a Normal Distribution :**
-    - log Transformation
-    - Box-Cox Transformation
-    - Yeo-Johnson Transformation
-    
-    **Adapun daftar column yang akan kita transform pada proses ini :**
-        - Conversion_rate_web
-        - MntFishProducts
-        - MntFruits
-        - MntGoldProds
-        - MntMeatProducts
-        - MntSweetProducts
-        - MntWines
-        - NumCatalogPurchases
-        - NumDealsPurchases
-        - NumStorePurchases
-        - NumWebPurchases
-        - Primer_purchase
-        - Spending
-        - Tersier_purchase
-        - Total_revenue
-    
-- **Just Scaling :**
-    - Normalization
-    - Standardization
-    
-    **Adapun daftar column yang akan kita transform pada proses ini :**
-        - Age
-        - Income
-        - Lifetime
-        - Month_joined
-        - NumWebVisitsMonth
-        - Recency
-        - Total_Purchases
-        - Year_Birth
-
-- Sedangkan untuk beberapa kolom yang **tidak perlu melakukan Transformasi** karena rentang nilai yang masih wajar sebagai berikut :
-    - Kidhome
-    - Teenhome
-    - Dependents
-    - Total_Cmp
-
-**Choice Determination:**
-
-- Pada proses `Scaling and Converting to a Normal Distribution` ini kita menggunakan `Yeo-Johnson Transformation`, karena dari hasilnya kita bisa melihat hasil bentuk curve yang lebih Normal Distribusi
-- Pada proses `Just Scaling` ini kita menggunakan `Normalization` karena lebih robust untuk algoritma yang akan kita gunakan 
-
-**Yeo-Johnson Transformation**
-
-Unlike the Box-Cox transform, it does not require the values for each input variable to be strictly positive.
-
-It supports zero values and negative values. This means we can apply it to our dataset without scaling it first.
-
-```html
-pt = PowerTransformer(method='yeo-johnson')
-df[log_cols] = pt.fit_transform(df[log_cols])
-```
-
-![image](https://github.com/nurimammasri/Marketing-Campaign-Model-Prediction-by-Datalicious/assets/54845293/2c896c5e-4141-4085-ab20-490fb1d53ac0)
-
-**Normalization**
-
-```html
-from sklearn.preprocessing import MinMaxScaler
-# create a scaler object
-scaler = MinMaxScaler()
-# fit and transform the data
-df[norm_cols] = pd.DataFrame(scaler.fit_transform(df[norm_cols]), columns=df[norm_cols].columns)
-```
-
-**Kesimpulan**
-
-Berdasarkan hasil pengecekan pada beberapa fitur yang telah diproses menggunakan transformation sebelumnya, dapat diketahui bahwa keseluruhan nilai skewnessnya sudah memiliki rentang yang lebih seragam (tidak jauh dan tidak terlalu bervariasi). Sehingga dapat disimpulkan bahwa teknik fitur transformation yang telah kami lakukan sudah valid dan kami.
 
 ## **📌 Feature Encoding (Categoric)**
 
