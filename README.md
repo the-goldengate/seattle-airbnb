@@ -1,15 +1,17 @@
-# ** Research Campaign - by The Golden Gate **
+# ** 📝 Research Campaign - by The Golden Gate **
 
 **✅ Members of The Golden gate ✅**
 
 1. M Ridzky Maulady
 2. Josua Ricardo Samosir
-3. Daniel Andrew Siahaan
+3. Habib Septrian Priyanto
+4. Daniel Andrew Siahaan
 
-## **Languages and Technologies used**
+## **💻 Languages and Technologies used 💻**
 
 - Python 3.12
 - Google Colab or Visual Studio Code
+- [Requirements Text]
 
 ## **📍 Table of Content 📍**
 <!--ts-->
@@ -41,7 +43,7 @@
     * [Handling Imbalanced Data](#-handling-imbalanced-data)
 <!--te-->
 
-## **⛳ Business Understanding ⛳**
+## **💼 Business Understanding 💼**
 
 ### **📌 Problem Statement**
 
@@ -120,12 +122,12 @@ Membuat classification model untuk **memprediksi kelompok customer yang akan mer
 _**Indicator :**_  (Total Bookings/Number of Cancellations)*100
     
         
-**📝 References :**
+**📖 References : 📖**
 
 - 
 
 
-## **🕹 Data Description 🕹**
+## **📂 Data Description 📂**
 
 **Seattle Airbnb Open Data ([link datasets](https://www.kaggle.com/datasets/airbnb/seattle/data))**
 
@@ -265,31 +267,6 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 ### **Basic Datasets Information**
 
 ## **📌 Data Types Information**
-
-**List of Column Types:**
-
-- **Date**
-
-    `Dt_Customer`
-
-- **Categorical** (10 Columns) : 
-    - `ID` - Nominal
-    - `Education` - Ordinal (Levels : Basic - Graduation - 2n Cycle - Master - PhD)
-    - `Marital_Status` - Nominal
-    - `AcceptedCmp1, AcceptedCmp2, AcceptedCmp3, AcceptedCmp4, AcceptedCmp5, Complain, Response` - Nominal (Binary 0 & 1)
-
-- **Continuous** (18 Columns):
-
-    `Year_Birth, Income, Kidhome, Teenhome, 
-    Recency, MntWines, MntFruits, MntMeatProducts, 
-    MntFishProducts, MntSweetProducts, MntGoldProds, 
-    NumDealsPurchases, NumWebPurchases, NumCatalogPurchases, 
-    NumStorePurchases, NumWebVisitsMonth, Z_CostContact, Z_Revenue`
-
-**Change the Some column data type**
-
-- Kita mengubah tipe data categorical ke `category`, agar dalam melakukan explorasi dan insight tidak di anggap sebagai data numerical
-- Untuk memudahkan dalam proses extraction `Dt_Customer` maupun part of, maka kolom date `object` diubah menjadi `datetime64`
 
 ## **📌 Statistical Summary**
 
