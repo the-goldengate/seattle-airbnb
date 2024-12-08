@@ -6,3 +6,5 @@ seaborn
 folium
 plotly
 scipy
+ipykernel
+nbformat
