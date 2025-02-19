@@ -265,6 +265,9 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 ## **📌 Explore Datasets**
 
 ### **Basic Datasets Information**
+- Dataset `listings` memiliki `92 columns` dan `3818 rows`
+- Dataset `reviews` memiliki `6 columns` dan `84849 rows`
+- Dataset `calendar` memiliki `4 columns` dan `1393570 rows`
 
 ## **📌 Data Types Information**
 
