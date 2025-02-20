@@ -1,4 +1,4 @@
-# ** 📝 Research Campaign - by The Golden Gate **
+# **📝 Optimasi Kampanye Pemasaran dengan Memprediksi Potensi Superhost untuk Meningkatkan Kepuasan Tamu dan Pendapatan Airbnb - by The Golden Gate**
 
 **✅ Members of The Golden gate ✅**
 
@@ -10,8 +10,7 @@
 ## **💻 Languages and Technologies used 💻**
 
 - Python 3.12
-- Google Colab or Visual Studio Code
-- [Requirements Text]
+- Google Colab
 
 ## **📍 Table of Content 📍**
 <!--ts-->
@@ -41,19 +40,27 @@
     * [Feature Selection](#-feature-selection)
     * [Data Splitting](#-data-splitting)
     * [Handling Imbalanced Data](#-handling-imbalanced-data)
+* **Modelling**
+    * [Model Training](#-model-training)
+    * [Model Evaluation](#-model-evaluation)
+    * [Feature Importances](#-feature-importances)
+    * [Model Selection](#-model-selection)
+* **Strategic Business Intelligence**
+    * [Business Insight](#-business-insight)
+    * [Strategic Action](#-strategic-action)
 <!--te-->
 
 ## **💼 Business Understanding 💼**
 
 ### **📌 Problem Statement**
 
-**AirBnb** adalah sebuah platform yang menyediakan pemilik properti (host) untuk menyewakan property kepada tamu/penyewa. Jenis property pada dataset listing berupa Apartment, House, Cabin, Condominium, Camper/RV, Bungalow, Townhouse, Loft, Boat, Bed & Breakfast, Dorm, Treehouse, Yurt, Chalet, Tent dan Other. Marketing Team ingin melakukan campaign penyesuaian harga kepada pemilik property, di musim apa yang dapat dilakukan campaign untuk mengundang tamu ke Seattle. Berdasarkan dataset AirBnb menghadapi beberapa permasalahan seperti berikut:
+**AirBnb** adalah sebuah platform yang menyediakan pemilik properti (host) untuk menyewakan property kepada tamu/penyewa. Jenis property pada dataset listing berupa Apartment, House, Cabin, Condominium, Camper/RV, Bungalow, Townhouse, Loft, Boat, Bed & Breakfast, Dorm, Treehouse, Yurt, Chalet, Tent dan Other. Marketing Team ingin melakukan campaign namun kesulitan dalam mengidentifikasi Superhost yang berpotensi untuk dijadikan target marketing campaign selanjutnya. **Superhost** yaitu status yang diberikan kepada host memiliki peran penting dalam meningkatkan kepuasan tamu dan pendapatan, sehingga penting untuk mengembangkan model prediktif yang dapat membantu dalam proses ini. Berdasarkan dataset AirBnb menghadapi beberapa permasalahan seperti berikut:
 
-- **Superhost** hanya dimiliki 17% dari total listing dan memiliki harga yang fluktuatif. 
-- **Booking Instant** hanya dimiliki 16% dari total listing. 
+- **Superhost Rate** hanya dimiliki 20.4% Host yang menunjukkan **Superhost** dan sisanya yaitu 79.6% **belum Superhost**.
+- **Boros Cost Campaign**. Total biaya campaign dari jumlah target campaign yang di lakukan sebelumnya mencapai $45.792 dengan biaya $12 per host.
+- ***Profit Tidak Maksimal** dengan **Net Profit Margin (NPM)** sebesar -33,76% dari revenue per host yang mencapai $44.
 
-Berdasarkan hal tersebut, Marketing Team meminta Researcher Team untuk menganalisis permasalahan yang terjadi. Selanjutnya AirBnb ingin membuat campaign yang dilakukan Marketing Team tepat sasaran sesuai **pemilik property**. Strategi ini diharapkan mampu meningkatkan kepemilikan label **Superhost** ada penyesuaian dalam penentuan harga terhadap kualitas property dan **Booking Instant** agar mempermudah penyewa dalam melakukan booking.
-
+Berdasarkan hal tersebut, Marketing Team meminta Researcher Team mengembangkan model prediktif yang dapat membantu tim marketing dalam menargetkan kampanye secara lebih efektif, meminimalisir biaya, dan meningkatkan pendapatan.
 
 ### **📌 Roles**
 
@@ -87,44 +94,33 @@ Kami adalah **Researcher Team** untuk Airbnb dengan nama **The Golden Gate**. Ti
 
 ### **📌 Goals**
 
-Perusahaan ingin meningkatkan **response rate** dan  meminimalisasi **marketing campaign cost** sehingga dapat memaksimalkan **profit**. 
+- Memprediksi host berpotensi menjadi **superhost**, model yang telah dikembangkan akan mengidentifikasi host dengan peluang tinggi menjadi **Superhost**, dievaluasi melalui metrics **Superhost rate**.
 
+- Mengoptimalkan **Strategi Pemasaran**, efektivitas kampanye pemasaran akan diukur menggunakan **Net Profit Margin** dan **ROI (Rest Of Investment)**, guna meningkatkan profitabilitas serta tingkat **Superhost rate**.
 
-### **📌 Objectives**
-
-Membuat classification model untuk **memprediksi kelompok customer yang akan merespon campaign** agar dapat **meminimalisasi biaya pemasaran dan memaksimalkan keuntungan** pada campaign marketing berikutnya.
-
+- Mengimplementasikan model prediksi berbasis web, model ini akan diterapkan dalam website berbasis **Streamlit**, sehingga **tim marketing** dapat melakukan prediksi secara real-time dengan akses yang lebih fleksibel.
 
 ### **📌 Business Metrics**
 
-- **Superhost Adoption Rate**
+- **Superhost Rate**
     
     Persentase efektivitas rekomendasi yang dihasilkan model untuk meningkatkan jumlah Superhost.
     
-    _**Indicator :**_ 17% is bad. [Currently Rate] {Source: review_scores_rating, c_data (frekuensi menginap), host_response_time, price dan cancellation_policy}
+    _**Indicator :**_ 20,4% dari 3.816 host dimana rate masih ada peluang untuk ditingkatkan.
     
-    - **Occupancy Rate**
-    
-        Mengukur persentase tingkat hunian properti setelah penerapan model harga dinamis untuk menilai dampak dari tindakan yang diambil.
 
-        _**Indicator :**_ 5% is low, 10-19% is average, 20% is good. (Total Nights Available/Nights Booked)*100 ​[Sample]
+- **Net Profit Margin (%NPM)**
     
-    - **Optimal Pricing**
-    
-        Menentukan harga ideal yang kompetitif berdasarkan ulasan dan tingkat pemesanan.
+    Total biaya campaign dari jumlah target campaign yang dilakukan
 
-        _**Indicator :**_  (Total Revenue/Number of Bookings)
+    _**Indicator :**_ $45.792 dengan biaya $12 per host dimana angka yang sangat boros untuk biaya pemasaran.
 
-- **Cancellation Rate**
-    
-    Persentase pembatalan terhadap total pemesanan dalam listing yang menggunakan Booking Instant.
 
-_**Indicator :**_  (Total Bookings/Number of Cancellations)*100
-    
-        
-**📖 References : 📖**
+- **Return Of Investment (ROI)**
 
-- 
+    Profit yang diperoleh Airbnb dari hasil kampanye
+
+    _**Indicator :**_ -33,76% dari revenue per host yang mencapai $44 dimana hasil kampanye tidak optimal.
 
 
 ## **📂 Data Description 📂**
