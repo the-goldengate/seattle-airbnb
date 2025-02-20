@@ -385,6 +385,8 @@ Fitur yang diubah menjadi tipe data float yaitu: `bathrooms, bedrooms, beds, rev
 - Fitur yang terdapat pada no_image = `thumbnail_url, medium_url, xl_picture_url, host_picture_url, host_has_profile_pic, host_thumbnail_urle` Diisi dengan kata no image untuk kolom yang memiliki gambar
 
 ## **📌 Handling Outliers**
+![image](https://github.com/user-attachments/assets/698798f9-e0af-4daa-89dc-365d0c9e6ce7)
+![image](https://github.com/user-attachments/assets/6464f3ad-b4dd-4a50-a0ad-a151519d0351)
 
 ## **📌 Feature Engineering/Extraction**
 
