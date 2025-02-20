@@ -343,23 +343,23 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 # **💡 Data Cleansing/Preprocessing 💡**
 
 ## **📌 Handling Invalid Values**
-- **Fitur `object` ke `datetime`**
+### **Fitur `object` ke `datetime`**
 
 Fitur yang diubah dari object ke datetime yaitu: `last_scraped, host_since, calendar_last_scraped, first_review, last_review, dan date`. Konversi ini memungkinkan analisis yang lebih efektif terhadap data berbasis waktu. Dengan tipe data datetime, kita dapat melakukan operasi seperti perhitungan durasi, pengelompokan data berdasarkan waktu, dan analisis tren temporal.
 
-- **Fitur `object` ke `float`**
+### **Fitur `object` ke `float`**
 
 Fitur yang diubah dari object ke float yaitu: `price_listings, weekly_price, monthly_price, security_deposit, cleaning_fee, extra_people, dan price_calendar`. Konversi ini diperlukan untuk memastikan bahwa nilai-nilai yang berhubungan dengan harga dan biaya dapat digunakan dalam analisis numerik.
 
-- **Fitur `object` ke `boolean`**
+### **Fitur `object` ke `boolean`**
 
 Fitur yang diubah menjadi tipe data boolean yaitu: `host_is_superhost, host_has_profile_pic, host_identity_verified, is_location_exact, has_availability, instant_bookable, require_guest_profile_picture, dan require_guest_phone_verification`. Konversi ini penting untuk memastikan bahwa kolom-kolom yang berisi informasi biner (ya/tidak) diwakili dengan tipe data yang sesuai.
 
-- **Fitur `object` ke `int`**
+### **Fitur `object` ke `int`**
 
 Fitur yang diubah menjadi tipe data integer yaitu: `accommodates, bathrooms, bedrooms, beds, minimum_nights, maximum_nights, availability_30, availability_60, availability_90, availability_365, number_of_reviews, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, calculated_host_listings_count`. Konversi ini dilakukan untuk memastikan bahwa nilai numerik yang merepresentasikan jumlah atau skor disimpan dalam tipe data yang lebih efisien.
 
-- **Fitur `object` ke `float`**
+### **Fitur `object` ke `float`**
 
 Fitur yang diubah menjadi tipe data float yaitu: `bathrooms, bedrooms, beds, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, reviews_per_month`. Konversi ini dilakukan untuk mempertahankan presisi dalam nilai-nilai yang mungkin memiliki desimal.
 
@@ -373,8 +373,16 @@ Fitur yang diubah menjadi tipe data float yaitu: `bathrooms, bedrooms, beds, rev
 - Menghapus baris kosong pada kolom `listing_id` karena kolom id yang kosong tidak valid
 
 ### **Imputation Numeric**
+- Fitur yang terdapat pada rate_columns = `last_review, first_review, host_response_rate, host_response_time` nilai null Diisi dengan nilai sebelumnya
+- Fitur yang terdapat pada `price_columns = price_calendar` nilai null Diisi dengan nilai `median` karena memiliki right skewed dan nilai outlier ekstrem.
+- Fitur `monthly_price` nilai null Diisi dengan mengkalikan harga listing perhari dengan jumlah hari per bulan
+- Fitur `weekly_price` nilai null Diisi dengan mengkalikan harga listing perhari dengan jumlah hari per minggu
+- Fitur yang terdapat pada score_columns = `reviews_per_month, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, security_deposit, cleaning_fee` Diisi dengan nilai 0 karena tidak semua listing memiliki review dan fee tambahan
 
 ### **Imputation Categoric**
+- Fitur yang terdapat pada frequent_text = `space, host_neighbourhood, bathrooms, host_location, bedrooms, host_since, host_total_listings_count, host_listings_count, host_name, property_type, beds, host_acceptance_rate` Diisi dengan kata yang paling banyak muncul atau modus
+- Fitur yang terdapat pada not_available = `notes, neighborhood_overview, transit, host_about, summary, zipcode` Diisi dengan kata tidak tersedia
+- Fitur yang terdapat pada no_image = `thumbnail_url, medium_url, xl_picture_url, host_picture_url, host_has_profile_pic, host_thumbnail_urle` Diisi dengan kata no image untuk kolom yang memiliki gambar
 
 ## **📌 Handling Outliers**
 
