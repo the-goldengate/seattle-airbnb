@@ -330,6 +330,7 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 - Kolom `beds` memiliki `1 nilai null`, persentase sebesar 0.03% dari jumlah data
 
 ## **📌 Data Types Information**
+
 ### **List of Column Type:**
 - **Object:** listing_url, last_scraped, name, summary, space, description, experiences_offered, neighborhood_overview, notes, transit, thumbnail_url, medium_url, picture_url, xl_picture_url, host_url, host_name, host_since, host_location, host_about, host_response_time, host_response_rate, host_acceptance_rate, host_is_superhost, host_thumbnail_url, host_picture_url, host_neighbourhood, host_verifications, host_has_profile_pic, host_identity_verified, street, neighbourhood, neighbourhood_cleansed, neighbourhood_group_cleansed, city, state, market, smart_location, country_code, country, is_location_exact, property_type, room_type, bed_type, amenities, price_listings, weekly_price, monthly_price, security_deposit, cleaning_fee, extra_people, calendar_updated, has_availability, calendar_last_scraped, first_review, last_review, requires_license, jurisdiction_names, instant_bookable, cancellation_policy, require_guest_profile_picture, require_guest_phone_verification, price_calendar
 - **Float64:** host_listings_count, host_total_listings_count, square_feet, bathrooms, bedrooms, beds, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, reviews_per_month, listing_id, license
@@ -340,9 +341,36 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 
 ## **📌 Exploratory Data Analysis (EDA)**
 
+### Review Score Cleanliness
+![image](https://github.com/user-attachments/assets/8708e5af-46b7-4cfb-9fd0-86cc6b46bf56)
+Properti Superhost mendapat ulasan kebersihan lebih baik. Properti Host dapat meningkatkan dalam bentuk pelatihan staf dan membangun komunikasi dengan pelanggan dengan meminta review yang membangun.
+### Space
+![image](https://github.com/user-attachments/assets/673dc609-93d1-47c6-89bb-b587bb35f40a)
+Menunjukkan bahwa superhost menawarkan ruang akomodasi yang lebih besar, optimalkan portofolio properti dengan menambahkan lebih banyak akomodasi yang menawarkan ruang lebih besar.
+### Weekly Price
+![image](https://github.com/user-attachments/assets/9a202f25-41c3-4914-af9d-8d1f57fe1bb7)
+Superhost memiliki harga mingguan yang lebih tinggi. Superhost menawarkan kepercayaan, visibilitas, kualitas, dan permintaan yang tinggi sehingga tamu bersedia membayar lebih untuk jaminan kualitas dan pengalaman yang lebih baik.
+### Review Scores Accuracy
+![image](https://github.com/user-attachments/assets/b6f230a4-4936-4ff1-a47d-7c41ede00500)
+Superhost memiliki skor akurasi deskripsi listing yang lebih tinggi (lebih dekat ke 0). Superhost mungkin lebih dapat diandalkan dalam hal akurasi informasi. Ini dapat membantu tamu membuat keputusan yang lebih tepat saat memilih akomodasi.
+### Amenities
+![image](https://github.com/user-attachments/assets/c463f506-6e63-4400-b6b8-958ba757cfa0)
+Properti Superhost memiliki fasilitas lebih lengkap dan berkualitas. Hal ini dapat diketahui dari hasil review sehingga peran komunikasi dengan pelanggan juga penting.
+### Review Scores Value
+![image](https://github.com/user-attachments/assets/d61b7bcd-bc66-4815-a8ea-9897a91389df)
+Superhost memiliki skor nilai rata-rata ulasan yang lebih tinggi) dibandingkan. Superhost cenderung memberikan pengalaman menginap yang lebih baik kepada tamu mereka dibandingkan dengan Host biasa.
+### Review Scores Communication
+![image](https://github.com/user-attachments/assets/6f49a7b9-ac51-4e6f-9ef5-736bca911be8)
+Superhost memiliki komunikasi yang lebih baik dibandingkan Host biasa, yang kemungkinan menjadi salah satu faktor mereka mendapatkan status Superhost. Review dapat berperan penting dalam pengembangan atau perbaikan pada properti pada status Host.
+### Host Identity Verified
+![image](https://github.com/user-attachments/assets/0bc4f38e-e4d4-4c78-9114-6714f3872a10)
+Verifikasi identitas pemilik properti wajib dilakukan oleh pemilik properti untuk segi keamanan dan meyakinkan tamu. Status Host memiliki nilai yang lebih tinggi karena secara keterdapatan properti dengan status Host juga lebih banyak.
+
+
 # **💡 Data Cleansing/Preprocessing 💡**
 
 ## **📌 Handling Invalid Values**
+
 ### **Fitur object ke datetime**
 - Fitur yang diubah dari object ke datetime yaitu: `last_scraped, host_since, calendar_last_scraped, first_review, last_review, dan date`. Konversi ini memungkinkan analisis yang lebih efektif terhadap data berbasis waktu. Dengan tipe data datetime, kita dapat melakukan operasi seperti perhitungan durasi, pengelompokan data berdasarkan waktu, dan analisis tren temporal.
 ### **Fitur object ke float**
@@ -394,20 +422,21 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 - Karena Data kita memiliki banyak nilai ekstrem dan tidak terdistribusi normal: Winsorization adalah pilihan yang baik karena menggantikan outlier dengan batas yang lebih realistis tanpa menghapus data, namun tetap dapat mempertahankan informasi penting dalam data.
 
 ## **📌 Feature Engineering/Extraction**
+
 ### **Membuat kolom day, month, and year**
-Memisahkan kolom date menjadi hari, tanggal, dan tahun untuk mendapatkan insight yang lebih rinci
+- Memisahkan kolom date menjadi hari, tanggal, dan tahun untuk mendapatkan insight yang lebih rinci
 ### **Membuat kolom average review score**
-Rata-rata dari semua skor ulasan
+- Rata-rata dari semua skor ulasan
 ### **Membuat kolom property attractiveness**
-Mengukur seberapa menarik properti berdasarkan ulasan dan skor rata-rata
+- Mengukur seberapa menarik properti berdasarkan ulasan dan skor rata-rata
 ### **Membuat kolom review positive ratio**
-Mengukur kualitas ulasan berdasarkan skor ulasan keseluruhan
+- Mengukur kualitas ulasan berdasarkan skor ulasan keseluruhan
 ### **Membuat kolom booking frequency**
-Mengukur apakah properti sering dipesan atau tersedia untuk waktu yang lama
+- Mengukur apakah properti sering dipesan atau tersedia untuk waktu yang lama
 ### **Membuat kolom high quality listings**
-Mengukur seberapa sering listing mendapatkan skor ulasan tinggi
+- Mengukur seberapa sering listing mendapatkan skor ulasan tinggi
 ### **Membuat kolom response speed**
-Mengukur seberapa sering listing mendapatkan review tiap bulannya
+- Mengukur seberapa sering listing mendapatkan review tiap bulannya
 
 ## **📌 Feature Transformation (Numeric)**
 ![image](https://github.com/user-attachments/assets/801fbb64-488b-4e3a-9b9b-00c6c23e8c31)
