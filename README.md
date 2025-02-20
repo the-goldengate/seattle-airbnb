@@ -330,7 +330,7 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 - Kolom `beds` memiliki `1 nilai null`, persentase sebesar 0.03% dari jumlah data
 
 ## **📌 Data Types Information**
-**List of Column Type:**
+### **List of Column Type:**
 - **Object:** listing_url, last_scraped, name, summary, space, description, experiences_offered, neighborhood_overview, notes, transit, thumbnail_url, medium_url, picture_url, xl_picture_url, host_url, host_name, host_since, host_location, host_about, host_response_time, host_response_rate, host_acceptance_rate, host_is_superhost, host_thumbnail_url, host_picture_url, host_neighbourhood, host_verifications, host_has_profile_pic, host_identity_verified, street, neighbourhood, neighbourhood_cleansed, neighbourhood_group_cleansed, city, state, market, smart_location, country_code, country, is_location_exact, property_type, room_type, bed_type, amenities, price_listings, weekly_price, monthly_price, security_deposit, cleaning_fee, extra_people, calendar_updated, has_availability, calendar_last_scraped, first_review, last_review, requires_license, jurisdiction_names, instant_bookable, cancellation_policy, require_guest_profile_picture, require_guest_phone_verification, price_calendar
 - **Float64:** host_listings_count, host_total_listings_count, square_feet, bathrooms, bedrooms, beds, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, reviews_per_month, listing_id, license
 - **Int64:** id, scrape_id, host_id, accommodates, guests_included, minimum_nights, maximum_nights, availability_30, availability_60, availability_90, availability_365, number_of_reviews, calculated_host_listings_count
@@ -344,24 +344,15 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 
 ## **📌 Handling Invalid Values**
 ### **Fitur object ke datetime**
-
-Fitur yang diubah dari object ke datetime yaitu: `last_scraped, host_since, calendar_last_scraped, first_review, last_review, dan date`. Konversi ini memungkinkan analisis yang lebih efektif terhadap data berbasis waktu. Dengan tipe data datetime, kita dapat melakukan operasi seperti perhitungan durasi, pengelompokan data berdasarkan waktu, dan analisis tren temporal.
-
+- Fitur yang diubah dari object ke datetime yaitu: `last_scraped, host_since, calendar_last_scraped, first_review, last_review, dan date`. Konversi ini memungkinkan analisis yang lebih efektif terhadap data berbasis waktu. Dengan tipe data datetime, kita dapat melakukan operasi seperti perhitungan durasi, pengelompokan data berdasarkan waktu, dan analisis tren temporal.
 ### **Fitur object ke float**
-
-Fitur yang diubah dari object ke float yaitu: `price_listings, weekly_price, monthly_price, security_deposit, cleaning_fee, extra_people, dan price_calendar`. Konversi ini diperlukan untuk memastikan bahwa nilai-nilai yang berhubungan dengan harga dan biaya dapat digunakan dalam analisis numerik.
-
+- Fitur yang diubah dari object ke float yaitu: `price_listings, weekly_price, monthly_price, security_deposit, cleaning_fee, extra_people, dan price_calendar`. Konversi ini diperlukan untuk memastikan bahwa nilai-nilai yang berhubungan dengan harga dan biaya dapat digunakan dalam analisis numerik.
 ### **Fitur object ke boolean**
-
-Fitur yang diubah menjadi tipe data boolean yaitu: `host_is_superhost, host_has_profile_pic, host_identity_verified, is_location_exact, has_availability, instant_bookable, require_guest_profile_picture, dan require_guest_phone_verification`. Konversi ini penting untuk memastikan bahwa kolom-kolom yang berisi informasi biner (ya/tidak) diwakili dengan tipe data yang sesuai.
-
+- Fitur yang diubah menjadi tipe data boolean yaitu: `host_is_superhost, host_has_profile_pic, host_identity_verified, is_location_exact, has_availability, instant_bookable, require_guest_profile_picture, dan require_guest_phone_verification`. Konversi ini penting untuk memastikan bahwa kolom-kolom yang berisi informasi biner (ya/tidak) diwakili dengan tipe data yang sesuai.
 ### **Fitur object ke int**
-
-Fitur yang diubah menjadi tipe data integer yaitu: `accommodates, bathrooms, bedrooms, beds, minimum_nights, maximum_nights, availability_30, availability_60, availability_90, availability_365, number_of_reviews, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, calculated_host_listings_count`. Konversi ini dilakukan untuk memastikan bahwa nilai numerik yang merepresentasikan jumlah atau skor disimpan dalam tipe data yang lebih efisien.
-
+- Fitur yang diubah menjadi tipe data integer yaitu: `accommodates, bathrooms, bedrooms, beds, minimum_nights, maximum_nights, availability_30, availability_60, availability_90, availability_365, number_of_reviews, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, calculated_host_listings_count`. Konversi ini dilakukan untuk memastikan bahwa nilai numerik yang merepresentasikan jumlah atau skor disimpan dalam tipe data yang lebih efisien.
 ### **Fitur object ke float**
-
-Fitur yang diubah menjadi tipe data float yaitu: `bathrooms, bedrooms, beds, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, reviews_per_month`. Konversi ini dilakukan untuk mempertahankan presisi dalam nilai-nilai yang mungkin memiliki desimal.
+- Fitur yang diubah menjadi tipe data float yaitu: `bathrooms, bedrooms, beds, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, reviews_per_month`. Konversi ini dilakukan untuk mempertahankan presisi dalam nilai-nilai yang mungkin memiliki desimal.
 
 ## **📌 Handling Missing Values**
 
@@ -387,10 +378,42 @@ Fitur yang diubah menjadi tipe data float yaitu: `bathrooms, bedrooms, beds, rev
 ## **📌 Handling Outliers**
 ![image](https://github.com/user-attachments/assets/698798f9-e0af-4daa-89dc-365d0c9e6ce7)
 ![image](https://github.com/user-attachments/assets/6464f3ad-b4dd-4a50-a0ad-a151519d0351)
+### **IQR**
+- Tidak ada outlier pada dataset ini untuk semua kolom. Semua data dianggap berada dalam batas yang wajar sesuai dengan perhitungan IQR
+- Meskipun nilai outlier teratasi semua, Perhitungan IQR tidak cocok untuk mendeteksi outlier dalam dataset dengan distribusi tertentu, terutama jika distribusi tidak normal atau data cenderung homogen.
+- Maka pada dataset yang kita miliki tidak terlalu cocok karna banyak memiliki nilai ekstrem.
+### **Z-Score**
+- Sebelum handling dengan Z-Score, jumlah total baris adalah 3191.
+- Setelah Z-Score, terdapat 2841 outliers dan hanya 350 non-outliers yang tersisa.
+- Z-Score terlalu ketat untuk dataset dengan distribusi skewed, sehingga menganggap banyak data valid sebagai outlier.
+- Hasil Z-Score kurang optimal untuk dataset ini karena terlalu banyak data yang dianggap outlier (89%)
+### **Winsorization**
+- Outlier All Data: 2755 outlier, dengan 436 data yang tidak terdeteksi sebagai outlier.
+- Winsorization menggantikan nilai ekstrim dengan batas atas atau bawah yang telah ditentukan, bukan menghapusnya, sehingga data tetap utuh dan tidak hilang.
+- Winsorization dapat diteruskan jika ingin menjaga sebanyak mungkin data sambil mengurangi dampak dari nilai ekstrim.
+- Karena Data kita memiliki banyak nilai ekstrem dan tidak terdistribusi normal: Winsorization adalah pilihan yang baik karena menggantikan outlier dengan batas yang lebih realistis tanpa menghapus data, namun tetap dapat mempertahankan informasi penting dalam data.
 
 ## **📌 Feature Engineering/Extraction**
+### **Membuat kolom day, month, and year**
+Memisahkan kolom date menjadi hari, tanggal, dan tahun untuk mendapatkan insight yang lebih rinci
+### **Membuat kolom average review score**
+Rata-rata dari semua skor ulasan
+### **Membuat kolom property attractiveness**
+Mengukur seberapa menarik properti berdasarkan ulasan dan skor rata-rata
+### **Membuat kolom review positive ratio**
+Mengukur kualitas ulasan berdasarkan skor ulasan keseluruhan
+### **Membuat kolom booking frequency**
+Mengukur apakah properti sering dipesan atau tersedia untuk waktu yang lama
+### **Membuat kolom high quality listings**
+Mengukur seberapa sering listing mendapatkan skor ulasan tinggi
+### **Membuat kolom response speed**
+Mengukur seberapa sering listing mendapatkan review tiap bulannya
 
 ## **📌 Feature Transformation (Numeric)**
+![image](https://github.com/user-attachments/assets/801fbb64-488b-4e3a-9b9b-00c6c23e8c31)
+![image](https://github.com/user-attachments/assets/62c93b26-8b65-429b-af7f-05dc2c3de0dc)
+
+
 
 ## **📌 Feature Encoding (Categoric)**
 
