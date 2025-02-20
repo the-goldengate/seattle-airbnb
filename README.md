@@ -339,28 +339,28 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 
 ## **📌 Exploratory Data Analysis (EDA)**
 
-### Review Score Cleanliness
+### 1. Review Score Cleanliness
 ![image](https://github.com/user-attachments/assets/8708e5af-46b7-4cfb-9fd0-86cc6b46bf56)
 Properti Superhost mendapat ulasan kebersihan lebih baik. Properti Host dapat meningkatkan dalam bentuk pelatihan staf dan membangun komunikasi dengan pelanggan dengan meminta review yang membangun.
-### Space
+### 2. Space
 ![image](https://github.com/user-attachments/assets/673dc609-93d1-47c6-89bb-b587bb35f40a)
 Menunjukkan bahwa superhost menawarkan ruang akomodasi yang lebih besar, optimalkan portofolio properti dengan menambahkan lebih banyak akomodasi yang menawarkan ruang lebih besar.
-### Weekly Price
+### 3. Weekly Price
 ![image](https://github.com/user-attachments/assets/9a202f25-41c3-4914-af9d-8d1f57fe1bb7)
 Superhost memiliki harga mingguan yang lebih tinggi. Superhost menawarkan kepercayaan, visibilitas, kualitas, dan permintaan yang tinggi sehingga tamu bersedia membayar lebih untuk jaminan kualitas dan pengalaman yang lebih baik.
-### Review Scores Accuracy
+### 4. Review Scores Accuracy
 ![image](https://github.com/user-attachments/assets/b6f230a4-4936-4ff1-a47d-7c41ede00500)
 Superhost memiliki skor akurasi deskripsi listing yang lebih tinggi (lebih dekat ke 0). Superhost mungkin lebih dapat diandalkan dalam hal akurasi informasi. Ini dapat membantu tamu membuat keputusan yang lebih tepat saat memilih akomodasi.
-### Amenities
+### 5. Amenities
 ![image](https://github.com/user-attachments/assets/c463f506-6e63-4400-b6b8-958ba757cfa0)
 Properti Superhost memiliki fasilitas lebih lengkap dan berkualitas. Hal ini dapat diketahui dari hasil review sehingga peran komunikasi dengan pelanggan juga penting.
-### Review Scores Value
+### 6. Review Scores Value
 ![image](https://github.com/user-attachments/assets/d61b7bcd-bc66-4815-a8ea-9897a91389df)
 Superhost memiliki skor nilai rata-rata ulasan yang lebih tinggi) dibandingkan. Superhost cenderung memberikan pengalaman menginap yang lebih baik kepada tamu mereka dibandingkan dengan Host biasa.
-### Review Scores Communication
+### 7. Review Scores Communication
 ![image](https://github.com/user-attachments/assets/6f49a7b9-ac51-4e6f-9ef5-736bca911be8)
 Superhost memiliki komunikasi yang lebih baik dibandingkan Host biasa, yang kemungkinan menjadi salah satu faktor mereka mendapatkan status Superhost. Review dapat berperan penting dalam pengembangan atau perbaikan pada properti pada status Host.
-### Host Identity Verified
+### 8. Host Identity Verified
 ![image](https://github.com/user-attachments/assets/0bc4f38e-e4d4-4c78-9114-6714f3872a10)
 Verifikasi identitas pemilik properti wajib dilakukan oleh pemilik properti untuk segi keamanan dan meyakinkan tamu. Status Host memiliki nilai yang lebih tinggi karena secara keterdapatan properti dengan status Host juga lebih banyak.
 
@@ -369,15 +369,15 @@ Verifikasi identitas pemilik properti wajib dilakukan oleh pemilik properti untu
 
 ## **📌 Handling Invalid Values**
 
-### **Fitur object ke datetime**
+### **1. Fitur object ke datetime**
 - Fitur yang diubah dari object ke datetime yaitu: `last_scraped, host_since, calendar_last_scraped, first_review, last_review, dan date`. Konversi ini memungkinkan analisis yang lebih efektif terhadap data berbasis waktu. Dengan tipe data datetime, kita dapat melakukan operasi seperti perhitungan durasi, pengelompokan data berdasarkan waktu, dan analisis tren temporal.
-### **Fitur object ke float**
+### **2. Fitur object ke float**
 - Fitur yang diubah dari object ke float yaitu: `price_listings, weekly_price, monthly_price, security_deposit, cleaning_fee, extra_people, dan price_calendar`. Konversi ini diperlukan untuk memastikan bahwa nilai-nilai yang berhubungan dengan harga dan biaya dapat digunakan dalam analisis numerik.
-### **Fitur object ke boolean**
+### **3. Fitur object ke boolean**
 - Fitur yang diubah menjadi tipe data boolean yaitu: `host_is_superhost, host_has_profile_pic, host_identity_verified, is_location_exact, has_availability, instant_bookable, require_guest_profile_picture, dan require_guest_phone_verification`. Konversi ini penting untuk memastikan bahwa kolom-kolom yang berisi informasi biner (ya/tidak) diwakili dengan tipe data yang sesuai.
-### **Fitur object ke int**
+### **4. Fitur object ke int**
 - Fitur yang diubah menjadi tipe data integer yaitu: `accommodates, bathrooms, bedrooms, beds, minimum_nights, maximum_nights, availability_30, availability_60, availability_90, availability_365, number_of_reviews, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, calculated_host_listings_count`. Konversi ini dilakukan untuk memastikan bahwa nilai numerik yang merepresentasikan jumlah atau skor disimpan dalam tipe data yang lebih efisien.
-### **Fitur object ke float**
+### **5. Fitur object ke float**
 - Fitur yang diubah menjadi tipe data float yaitu: `bathrooms, bedrooms, beds, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, reviews_per_month`. Konversi ini dilakukan untuk mempertahankan presisi dalam nilai-nilai yang mungkin memiliki desimal.
 
 ## **📌 Handling Missing Values**
@@ -421,19 +421,19 @@ Verifikasi identitas pemilik properti wajib dilakukan oleh pemilik properti untu
 
 ## **📌 Feature Engineering/Extraction**
 
-### **Membuat kolom day, month, and year**
+### **1. Membuat kolom day, month, and year**
 - Memisahkan kolom date menjadi hari, tanggal, dan tahun untuk mendapatkan insight yang lebih rinci
-### **Membuat kolom average review score**
+### **2. Membuat kolom average review score**
 - Rata-rata dari semua skor ulasan
-### **Membuat kolom property attractiveness**
+### **3. Membuat kolom property attractiveness**
 - Mengukur seberapa menarik properti berdasarkan ulasan dan skor rata-rata
-### **Membuat kolom review positive ratio**
+### **4. Membuat kolom review positive ratio**
 - Mengukur kualitas ulasan berdasarkan skor ulasan keseluruhan
-### **Membuat kolom booking frequency**
+### **5. Membuat kolom booking frequency**
 - Mengukur apakah properti sering dipesan atau tersedia untuk waktu yang lama
-### **Membuat kolom high quality listings**
+### **6. Membuat kolom high quality listings**
 - Mengukur seberapa sering listing mendapatkan skor ulasan tinggi
-### **Membuat kolom response speed**
+### **7. Membuat kolom response speed**
 - Mengukur seberapa sering listing mendapatkan review tiap bulannya
 
 ## **📌 Feature Transformation (Numeric)**
@@ -476,15 +476,15 @@ Dalam proses pemilihan fitur, kami menerapkan beberapa metode di mana fitur terb
 - Atribut Tambahan Lainnya: Kolom seperti `name, notes, host_name, dan experiences_offered` juga dihilangkan karena kurang relevan dalam konteks prediksi.
 
 ### Univariate Selection
-- **ANOVA F-value** memperkirakan derajat linearitas antara fitur input (yaitu, fitur independen) dan fitur output (yaitu, fitur dependen). Nilai F yang tinggi menunjukkan derajat linearitas yang tinggi dan nilai F yang rendah menunjukkan derajat linearitas yang rendah. Nilai F ANOVA hanya menangkap hubungan linear antara fitur input dan fitur output.
+- **1. ANOVA F-value** memperkirakan derajat linearitas antara fitur input (yaitu, fitur independen) dan fitur output (yaitu, fitur dependen). Nilai F yang tinggi menunjukkan derajat linearitas yang tinggi dan nilai F yang rendah menunjukkan derajat linearitas yang rendah. Nilai F ANOVA hanya menangkap hubungan linear antara fitur input dan fitur output.
 ![image](https://github.com/user-attachments/assets/d767d15c-04e2-4847-8402-c4b91c958170)
-- **Variance Threshold** menghapus fitur-fitur yang variansinya di bawah nilai `threshold` yang telah ditentukan. Secara default, ini menghapus semua fitur dengan varians nol, yaitu fitur yang memiliki nilai yang sama di semua sampel. Ini dapat digunakan untuk pembelajaran tanpa pengawasan (unsupervised learning). Variance Threshold hanya mempertimbangkan hubungan antar fitur, tetapi tidak mempertimbangkan hubungan antara fitur input dengan fitur output.
+- **2. Variance Threshold** menghapus fitur-fitur yang variansinya di bawah nilai `threshold` yang telah ditentukan. Secara default, ini menghapus semua fitur dengan varians nol, yaitu fitur yang memiliki nilai yang sama di semua sampel. Ini dapat digunakan untuk pembelajaran tanpa pengawasan (unsupervised learning). Variance Threshold hanya mempertimbangkan hubungan antar fitur, tetapi tidak mempertimbangkan hubungan antara fitur input dengan fitur output.
 ![image](https://github.com/user-attachments/assets/ed6b94f1-0956-407f-bfe6-6bd16220276a)
-- **Mutual information** mengukur ketergantungan satu variabel terhadap variabel lainnya dengan mengkuantifikasi jumlah informasi yang diperoleh tentang satu fitur melalui fitur lainnya. MI bersifat simetris dan tidak negatif, serta sama dengan nol jika dan hanya jika dua variabel acak independen, dan nilai yang lebih tinggi menunjukkan ketergantungan yang lebih tinggi. MI dapat menangkap hubungan non-linear antara fitur input dan fitur output.
+- **3. Mutual information** mengukur ketergantungan satu variabel terhadap variabel lainnya dengan mengkuantifikasi jumlah informasi yang diperoleh tentang satu fitur melalui fitur lainnya. MI bersifat simetris dan tidak negatif, serta sama dengan nol jika dan hanya jika dua variabel acak independen, dan nilai yang lebih tinggi menunjukkan ketergantungan yang lebih tinggi. MI dapat menangkap hubungan non-linear antara fitur input dan fitur output.
 ![image](https://github.com/user-attachments/assets/eb00ade9-218e-498b-a4c1-a2f4e6e70c06)
-- **Scikit-learn’s SelectKBest** memilih fitur-fitur menggunakan sebuah fungsi (dalam hal ini nilai F ANOVA) dan kemudian "menghapus semua kecuali k fitur dengan skor tertinggi". Uji statistik dapat digunakan untuk memilih fitur-fitur yang memiliki hubungan terkuat dengan variabel output. `Mutual information, ANOVA F-test dan chi square` adalah beberapa metode paling populer untuk Univariate Feature Selection.
+- **4. Scikit-learn’s SelectKBest** memilih fitur-fitur menggunakan sebuah fungsi (dalam hal ini nilai F ANOVA) dan kemudian "menghapus semua kecuali k fitur dengan skor tertinggi". Uji statistik dapat digunakan untuk memilih fitur-fitur yang memiliki hubungan terkuat dengan variabel output. `Mutual information, ANOVA F-test dan chi square` adalah beberapa metode paling populer untuk Univariate Feature Selection.
 ![image](https://github.com/user-attachments/assets/86f0220f-a83d-4c92-b12e-dc12c54b31e3)
-- **Weight Of Evidence(WOE)** metode yang digunakan untuk mengukur seberapa kuat hubungan antara variabel independen kategorikal (prediktor) dengan variabel target yang bersifat biner (0 atau 1). WOE bekerja dengan cara menghitung logaritma dari rasio peluang (odds ratio) antara jumlah kejadian positif (1) dan negatif (0) dalam setiap kategori variabel independen. Dengan kata lain, WOE membantu memahami seberapa baik suatu kategori dalam variabel prediktor dapat memengaruhi atau memprediksi hasil superhost (1) atau bukan superhost (0) pada variabel target.
+- **5. Weight Of Evidence(WOE)** metode yang digunakan untuk mengukur seberapa kuat hubungan antara variabel independen kategorikal (prediktor) dengan variabel target yang bersifat biner (0 atau 1). WOE bekerja dengan cara menghitung logaritma dari rasio peluang (odds ratio) antara jumlah kejadian positif (1) dan negatif (0) dalam setiap kategori variabel independen. Dengan kata lain, WOE membantu memahami seberapa baik suatu kategori dalam variabel prediktor dapat memengaruhi atau memprediksi hasil superhost (1) atau bukan superhost (0) pada variabel target.
 
 ### Feature Importance
 ![image](https://github.com/user-attachments/assets/8aa5637d-1c11-4dac-b392-d2727b20643e)
