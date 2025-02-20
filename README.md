@@ -502,3 +502,18 @@ Memisahkan data training dan testing dengan proporsi 80:20
 - Testing shape: (639, 23) (639,)
 
 ## **📌 Handling Imbalanced Data**
+![image](https://github.com/user-attachments/assets/a16377e4-113d-4400-8f11-b739efaf9cf3)
+
+### **Menggunakan RandomOverSampler Method**
+- Before OverSampling, the shape of X_train: (2552, 23)
+- Before OverSampling, the shape of y_train: (2552,) 
+
+- Before OverSampling, counts of label '1': 591
+- Before OverSampling, counts of label '0': 1961 
+
+- After OverSampling, the shape of X_train: (2941, 23)
+- After OverSampling, the shape of y_train: (2941,) 
+
+- After OverSampling, counts of label '1': 980
+- After OverSampling, counts of label '0': 1961
+
