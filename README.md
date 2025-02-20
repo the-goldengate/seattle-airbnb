@@ -344,17 +344,37 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 
 ## **📌 Handling Invalid Values**
 - **Fitur `object` ke `datetime`**
+
 Fitur yang diubah dari object ke datetime yaitu: `last_scraped, host_since, calendar_last_scraped, first_review, last_review, dan date`. Konversi ini memungkinkan analisis yang lebih efektif terhadap data berbasis waktu. Dengan tipe data datetime, kita dapat melakukan operasi seperti perhitungan durasi, pengelompokan data berdasarkan waktu, dan analisis tren temporal.
+
 - **Fitur `object` ke `float`**
+
 Fitur yang diubah dari object ke float yaitu: `price_listings, weekly_price, monthly_price, security_deposit, cleaning_fee, extra_people, dan price_calendar`. Konversi ini diperlukan untuk memastikan bahwa nilai-nilai yang berhubungan dengan harga dan biaya dapat digunakan dalam analisis numerik.
+
 - **Fitur `object` ke `boolean`**
+
 Fitur yang diubah menjadi tipe data boolean yaitu: `host_is_superhost, host_has_profile_pic, host_identity_verified, is_location_exact, has_availability, instant_bookable, require_guest_profile_picture, dan require_guest_phone_verification`. Konversi ini penting untuk memastikan bahwa kolom-kolom yang berisi informasi biner (ya/tidak) diwakili dengan tipe data yang sesuai.
+
 - **Fitur `object` ke `int`**
+
 Fitur yang diubah menjadi tipe data integer yaitu: `accommodates, bathrooms, bedrooms, beds, minimum_nights, maximum_nights, availability_30, availability_60, availability_90, availability_365, number_of_reviews, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, calculated_host_listings_count`. Konversi ini dilakukan untuk memastikan bahwa nilai numerik yang merepresentasikan jumlah atau skor disimpan dalam tipe data yang lebih efisien.
+
 - **Fitur `object` ke `float`**
+
 Fitur yang diubah menjadi tipe data float yaitu: `bathrooms, bedrooms, beds, review_scores_rating, review_scores_accuracy, review_scores_cleanliness, review_scores_checkin, review_scores_communication, review_scores_location, review_scores_value, reviews_per_month`. Konversi ini dilakukan untuk mempertahankan presisi dalam nilai-nilai yang mungkin memiliki desimal.
 
 ## **📌 Handling Missing Values**
+
+### **Drop Column**
+- Menghapus kolom `license` dan `square feet` karena terlalu banyak baris yang kosong, membuat kolom tersebut tidak bisa digunakan
+- Menghapus kolom `neighbourhood` karena tidak diperlukan, neighbourhood sudah mempunyai versi cleansed nya
+
+### **Drop Row**
+- Menghapus baris kosong pada kolom `listing_id` karena kolom id yang kosong tidak valid
+
+### **Imputation Numeric**
+
+### **Imputation Categoric**
 
 ## **📌 Handling Outliers**
 
