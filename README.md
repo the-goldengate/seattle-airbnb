@@ -269,6 +269,20 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 - Dataset `reviews` memiliki `6 columns` dan `84849 rows`
 - Dataset `calendar` memiliki `4 columns` dan `1393570 rows`
 
+#### **Hal yang harus dilakukan**
+- Melakukan merge ketiga dataset terlebih dahulu berdasarkan `listing_id`
+
+### **Basic Merged Datasets Information**
+- Dataset memiliki `96 columns` dan `3818 rows`
+- Dataset memiliki banyak tipe data yang tidak cocok
+- Dataset memiliki banyak baris kosong
+
+### **Checking Invalid Values**
+
+### **Checking Duplicate Rows**
+
+### **Checking Missing Values**
+
 ## **📌 Data Types Information**
 
 ## **📌 Statistical Summary**
