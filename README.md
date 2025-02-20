@@ -277,11 +277,56 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 - Dataset memiliki banyak tipe data yang tidak cocok
 - Dataset memiliki banyak baris kosong
 
-### **Checking Invalid Values**
-
 ### **Checking Duplicate Rows**
+- Dataset tidak memiliki nilai duplikat
 
 ### **Checking Missing Values**
+- Kolom `license` memiliki `3818 nilai null`, persentase sebesar 100% dari jumlah data
+- Kolom `square_feet` memiliki `3721 nilai null`, persentase sebesar 97.46% dari jumlah data
+- Kolom `monthly_price` memiliki `2301 nilai null`, persentase sebesar 60.27% dari jumlah data
+- Kolom `security_deposit` memiliki `1952 nilai null`, persentase sebesar 51.13% dari jumlah data
+- Kolom `weekly_price` memiliki `1809 nilai null`, persentase sebesar 47.38% dari jumlah data
+- Kolom `notes` memiliki `1606 nilai null`, persentase sebesar 42.06% dari jumlah data
+- Kolom `price_calendar` memiliki `1533 nilai null`, persentase sebesar 40.15% dari jumlah data
+- Kolom `neighborhood_overview` memiliki `1032 nilai null`, persentase sebesar 27.03% dari jumlah data
+- Kolom `cleaning_fee` memiliki `1030 nilai null`, persentase sebesar 26.98% dari jumlah data
+- Kolom `transit` memiliki `934 nilai null`, persentase sebesar 24.46% dari jumlah data
+- Kolom `host_about` memiliki `859 nilai null`, persentase sebesar 22.50% dari jumlah data
+- Kolom `host_acceptance_rate` memiliki `773 nilai null`, persentase sebesar 20.25% dari jumlah data
+- Kolom `review_scores_accuracy` memiliki `658 nilai null`, persentase sebesar 17.23% dari jumlah data
+- Kolom `review_scores_checkin` memiliki `658 nilai null`, persentase sebesar 17.23% dari jumlah data
+- Kolom `review_scores_value` memiliki `656 nilai null`, persentase sebesar 17.18% dari jumlah data
+- Kolom `review_scores_location` memiliki `655 nilai null`, persentase sebesar 17.16% dari jumlah data
+- Kolom `review_scores_cleanliness` memiliki `653 nilai null`, persentase sebesar 17.10% dari jumlah data
+- Kolom `review_scores_communication` memiliki `651 nilai null`, persentase sebesar 17.05% dari jumlah data
+- Kolom `review_scores_rating` memiliki `647 nilai null`, persentase sebesar 16.95% dari jumlah data
+- Kolom `listing_id` memiliki `627 nilai null`, persentase sebesar 16.42% dari jumlah data
+- Kolom `first_review` memiliki `627 nilai null, persentase sebesar 16.42% dari jumlah data
+- Kolom `last_review` memiliki `627 nilai null`, persentase sebesar 16.42% dari jumlah data
+- Kolom `reviews_per_month` memiliki `627 nilai null`, persentase sebesar 16.42% dari jumlah data
+- Kolom `date` memiliki `627 nilai null`, persentase sebesar 16.42% dari jumlah data
+- Kolom `space` memiliki `569 nilai null`, persentase sebesar 14.90% dari jumlah data
+- Kolom `host_response_time` memiliki `523 nilai null`, persentase sebesar 13.70% dari jumlah data
+- Kolom `host_response_rate` memiliki `523 nilai null`, persentase sebesar 13.70% dari jumlah data
+- Kolom `neighbourhood` memiliki `416 nilai null`, persentase sebesar 10.90% dari jumlah data
+- Kolom `xl_picture_url` memiliki `320 nilai null`, persentase sebesar 8.38% dari jumlah data
+- Kolom `thumbnail_url` memiliki `320 nilai null`, persentase sebesar 8.38% dari jumlah data
+- Kolom `medium_url` memiliki `320 nilai null`, persentase sebesar 8.38% dari jumlah data
+- Kolom `host_neighbourhood` memiliki `300 nilai null`, persentase sebesar 7.86% dari jumlah data
+- Kolom `summary` memiliki `177 nilai null`, persentase sebesar 4.64% dari jumlah data
+- Kolom `bathrooms` memiliki `16 nilai null`, persentase sebesar 0.42% dari jumlah data
+- Kolom `host_location` memiliki `8 nilai null`, persentase sebesar 0.21% dari jumlah data
+- Kolom `zipcode` memiliki `7 nilai null`, persentase sebesar 0.18% dari jumlah data
+- Kolom `bedrooms` memiliki `6 nilai null`, persentase sebesar 0.16% dari jumlah data
+- Kolom `host_thumbnail_url` memiliki `2 nilai null`, persentase sebesar 0.05% dari jumlah data
+- Kolom `host_since` memiliki `2 nilai null`, persentase sebesar 0.05% dari jumlah data
+- Kolom `host_verifications` memiliki `2 nilai null`, persentase sebesar 0.05% dari jumlah data
+- Kolom `host_total_listings_count` memiliki `2 nilai null`, persentase sebesar 0.05% dari jumlah data
+- Kolom `host_picture_url` memiliki `2 nilai null`, persentase sebesar 0.05% dari jumlah data
+- Kolom `host_listings_count` memiliki `2 nilai null`, persentase sebesar 0.05% dari jumlah data
+- Kolom `host_name` memiliki `2 nilai null`, persentase sebesar 0.05% dari jumlah data
+- Kolom `property_type` memiliki `1 nilai null`, persentase sebesar 0.03% dari jumlah data
+- Kolom `beds` memiliki `1 nilai null`, persentase sebesar 0.03% dari jumlah data
 
 ## **📌 Data Types Information**
 
