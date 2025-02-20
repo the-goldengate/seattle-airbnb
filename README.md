@@ -337,8 +337,6 @@ Dataset calendar berisi 1.393.570 sampel. Ini terdiri dari 4 fitur :
 - **Int64:** id, scrape_id, host_id, accommodates, guests_included, minimum_nights, maximum_nights, availability_30, availability_60, availability_90, availability_365, number_of_reviews, calculated_host_listings_count
 - **Datetime:** date
 
-## **📌 Statistical Summary**
-
 ## **📌 Exploratory Data Analysis (EDA)**
 
 ### Review Score Cleanliness
