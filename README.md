@@ -411,14 +411,65 @@ Mengukur seberapa sering listing mendapatkan review tiap bulannya
 
 ## **📌 Feature Transformation (Numeric)**
 ![image](https://github.com/user-attachments/assets/801fbb64-488b-4e3a-9b9b-00c6c23e8c31)
+
 ![image](https://github.com/user-attachments/assets/62c93b26-8b65-429b-af7f-05dc2c3de0dc)
 
+Dari hasil temuan tersebut, kita dapat menentukan beberapa transformasi yang akan dilakukan berdasarkan tipe distribusi setiap kolom. Berikut adalah langkah-langkah transformasi yang bisa diambil:
 
+**`1. Scaling and Converting to a Normal Distribution`**
+
+Kolom dengan skewness tinggi (baik positif maupun negatif) memerlukan transformasi untuk mendekati distribusi normal. Transformasi yang umum digunakan adalah:
+- Log Transformation: Untuk kolom yang sangat positif skewed.
+- Box-Cox Transformation: Memerlukan data positif dan dapat mengubah data menjadi distribusi normal.
+- Yeo-Johnson Transformation: Alternatif * Box-Cox untuk data yang bisa memiliki nilai nol atau negatif.
+
+**`2. Just Scaling`**
+
+Kolom dengan distribusi yang relatif normal atau sedikit skewed mungkin hanya memerlukan skala ulang, seperti:
+- Normalization: Mengubah nilai ke dalam rentang [0, 1].
+- Standardization: Mengubah nilai ke bentuk distribusi standar dengan mean 0 dan standar deviasi 1.
+
+**` 3. Kolom yang Tidak Memerlukan Transformasi`**
+
+Kolom yang tidak memiliki nilai skewness atau kurtosis yang signifikan mungkin tidak memerlukan transformasi apapun, seperti:
+
+**` 4. Choice Determination`**
+
+Pada proses Feature Transformation / Scaling ini kita menggunakan `Yeo-Johnson Transformation` pada kolom-kolom yang masih memiliki skala yang besar, karena dari hasilnya kita bisa melihat hasil bentuk curve yang lebih Normal Distribusi. Dan sangat cocok untuk penggunaan Algoritma berbasis tree.
 
 ## **📌 Feature Encoding (Categoric)**
 
 ## **📌 Feature Selection**
+Dalam proses pemilihan fitur, kami menerapkan beberapa metode di mana fitur terbaik yang dihasilkan akan digabungkan dengan metode berikutnya. Kami kemudian mengidentifikasi fitur-fitur yang sudah ada sebelumnya dan menambahkan fitur-fitur yang belum termasuk dalam fitur terbaik tersebut.
+
+### Drop Unnecessary Feature
+- Informasi URL dan Identitas: Kolom seperti `listing_url, host_url, dan ID` tidak relevan karena tidak berkontribusi pada analisis atau pembelajaran model.
+- Informasi Visual dan Deskriptif: Kolom seperti `picture_url, host_picture_url, dan neighborhood_overview` yang bersifat informatif tetapi tidak terstruktur untuk analisis.
+- Informasi Waktu dan Riwayat: Kolom seperti `last_scraped, host_since, first_review, dan last_review` dihapus untuk menyederhanakan dataset.
+- Atribut Tambahan Lainnya: Kolom seperti `name, notes, host_name, dan experiences_offered` juga dihilangkan karena kurang relevan dalam konteks prediksi.
+
+### Univariate Selection
+- **ANOVA F-value** memperkirakan derajat linearitas antara fitur input (yaitu, fitur independen) dan fitur output (yaitu, fitur dependen). Nilai F yang tinggi menunjukkan derajat linearitas yang tinggi dan nilai F yang rendah menunjukkan derajat linearitas yang rendah. Nilai F ANOVA hanya menangkap hubungan linear antara fitur input dan fitur output.
+![image](https://github.com/user-attachments/assets/d767d15c-04e2-4847-8402-c4b91c958170)
+- **Variance Threshold** menghapus fitur-fitur yang variansinya di bawah nilai `threshold` yang telah ditentukan. Secara default, ini menghapus semua fitur dengan varians nol, yaitu fitur yang memiliki nilai yang sama di semua sampel. Ini dapat digunakan untuk pembelajaran tanpa pengawasan (unsupervised learning). Variance Threshold hanya mempertimbangkan hubungan antar fitur, tetapi tidak mempertimbangkan hubungan antara fitur input dengan fitur output.
+![image](https://github.com/user-attachments/assets/ed6b94f1-0956-407f-bfe6-6bd16220276a)
+- **Mutual information** mengukur ketergantungan satu variabel terhadap variabel lainnya dengan mengkuantifikasi jumlah informasi yang diperoleh tentang satu fitur melalui fitur lainnya. MI bersifat simetris dan tidak negatif, serta sama dengan nol jika dan hanya jika dua variabel acak independen, dan nilai yang lebih tinggi menunjukkan ketergantungan yang lebih tinggi. MI dapat menangkap hubungan non-linear antara fitur input dan fitur output.
+![image](https://github.com/user-attachments/assets/eb00ade9-218e-498b-a4c1-a2f4e6e70c06)
+- **Scikit-learn’s SelectKBest** memilih fitur-fitur menggunakan sebuah fungsi (dalam hal ini nilai F ANOVA) dan kemudian "menghapus semua kecuali k fitur dengan skor tertinggi". Uji statistik dapat digunakan untuk memilih fitur-fitur yang memiliki hubungan terkuat dengan variabel output. `Mutual information, ANOVA F-test dan chi square` adalah beberapa metode paling populer untuk Univariate Feature Selection.
+![image](https://github.com/user-attachments/assets/86f0220f-a83d-4c92-b12e-dc12c54b31e3)
+- **Weight Of Evidence(WOE)** metode yang digunakan untuk mengukur seberapa kuat hubungan antara variabel independen kategorikal (prediktor) dengan variabel target yang bersifat biner (0 atau 1). WOE bekerja dengan cara menghitung logaritma dari rasio peluang (odds ratio) antara jumlah kejadian positif (1) dan negatif (0) dalam setiap kategori variabel independen. Dengan kata lain, WOE membantu memahami seberapa baik suatu kategori dalam variabel prediktor dapat memengaruhi atau memprediksi hasil superhost (1) atau bukan superhost (0) pada variabel target.
+
+### Feature Importance
+![image](https://github.com/user-attachments/assets/8aa5637d-1c11-4dac-b392-d2727b20643e)
+
+### Correlation Matrix with Heatmap
+![image](https://github.com/user-attachments/assets/bb14a13b-29f1-42ea-afea-06a9b0e63cdc)
+
+![image](https://github.com/user-attachments/assets/af03b854-b06d-493c-bbf2-af3686f0f69c)
 
 ## **📌 Data Splitting**
+Memisahkan data training dan testing dengan proporsi 80:20
+- Training shape: (2552, 23) (2552,)
+- Testing shape: (639, 23) (639,)
 
 ## **📌 Handling Imbalanced Data**
