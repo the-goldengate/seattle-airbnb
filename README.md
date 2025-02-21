@@ -40,14 +40,6 @@
     * [Feature Selection](#-feature-selection)
     * [Data Splitting](#-data-splitting)
     * [Handling Imbalanced Data](#-handling-imbalanced-data)
-* **Modelling**
-    * [Model Training](#-model-training)
-    * [Model Evaluation](#-model-evaluation)
-    * [Feature Importances](#-feature-importances)
-    * [Model Selection](#-model-selection)
-* **Strategic Business Intelligence**
-    * [Business Insight](#-business-insight)
-    * [Strategic Action](#-strategic-action)
 <!--te-->
 
 ## **💼 Business Understanding 💼**
