@@ -1,4 +1,4 @@
-# **📝 Optimasi Kampanye Pemasaran dengan Memprediksi Potensi Superhost untuk Meningkatkan Kepuasan Tamu dan Pendapatan Airbnb - by The Golden Gate**
+# **📝 Optimizing Marketing Campaigns by Predicting Superhost Potential to Increase Guest Satisfaction and Revenue on Airbnb - by The Golden Gate**
 
 **✅ Members of The Golden gate ✅**
 
@@ -503,3 +503,8 @@ Memisahkan data training dan testing dengan proporsi 80:20
 - After OverSampling, counts of label '1': 980
 - After OverSampling, counts of label '0': 1961
 
+## **📌 Modelling & Business Recommendation**
+([Modelling & Business Recommendation](https://github.com/the-goldengate/seattle-airbnb/blob/master/FinalPresentation-The%20Golden%20Gate%20-%20Seattle%20Airbnb.pdf))
+
+## **📌 Deployment**
+([Deployment Link ](https://github.com/the-goldengate/web-api-superhost))
